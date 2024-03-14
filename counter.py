@@ -18,22 +18,25 @@ def cooking_timer(duration_minutes, use_sound):
             print(".", end='', flush=True)
         time.sleep(1)
 
-    print("\n Cooking completed")
+    print("\n Cuisson términée")
     if use_sound:
         beepy.beep(sound=1)
 
 
+# Affichage de menu
 def choose_option():
     """Permet à l'utilisateur de choisir une option."""
     print("Options:")
-    print("1. Soft-boiled Eggs (3 minutes)")
-    print("2. Medium-boiled Eggs (6 minutes)")
-    print("3. Hard-boiled Eggs (9 minutes)")
+    print("1. Oeufs à la coque (3 minutes)")
+    print("2. Oeufs mollets (6 minutes)")
+    print("3. Oeufs durs (9 minutes)")
 
     while True:
         choice = input("Choisissez une option (1, 2, ou 3) : ")
         if choice in ['1', '2', '3']:
             return int(choice)
+        else:
+            print("ERREUR : Veuillez entrez une valeur valide !")
 
 
 def main():
