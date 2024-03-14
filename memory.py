@@ -4,32 +4,29 @@ import time
 
 def afficher_nombre_aleatoire(nombre):
     """Affiche un nombre aléatoire de 4 chiffres pendant 3 secondes."""
-    print(nombre, end='', flush=True)  # Affiche le nombre
-    time.sleep(3)  # Attend pendant 3 secondes
+    print(nombre, end='', flush=True)
+    time.sleep(3)
     print("\r" + " " * len(str(nombre)), end='', flush=True)  # Efface le nombre affiché
 
 
 score = 0
 sequence_length = 4
+
 while True:
     nombre_aleatoire = random.randint(10 ** (sequence_length - 1), (10 ** sequence_length) - 1)
     nb = random.randint(0, 9)
-    # Demandez à l'utilisateur de retenir le nombre
     print("\nVous avez 3 secondes pour mémoriser le nombre qui s'affiche...")
-    # Affiche le nombre aléatoire pendant 3 secondes
-    time.sleep(1)  # Attend pendant 3 secondes
+    time.sleep(1)
     afficher_nombre_aleatoire(nombre_aleatoire)
 
     while True:
-        # Demandez à l'utilisateur d'écrire le nombre qu'il a mémorisé
         nombre_entre = input("\nEntrez le nombre que vous avez mémorisé : ")
         try:
             nombre_entre = int(nombre_entre)
             break
         except ValueError:
-            print("Veuillez entrer un nombre valide; !")
+            print("Veuillez entrer un nombre valide!")
 
-    # Vérifie si le nombre entré par l'utilisateur correspond au nombre aléatoire
     if nombre_entre == nombre_aleatoire:
         print(f"Félicitations! Vous avez bien mémorisé le nombre.")
         score += 1
