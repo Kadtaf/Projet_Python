@@ -2,21 +2,24 @@ import os
 import random
 import time
 
-"""
+
 def clear_screen():
     if os.name == 'posix':
         os.system('clear')
     else:
         os.system('cls')
-"""
 
 
 def afficher_nombre_aleatoire(nombre):
     """Affiche un nombre aléatoire de 4 chiffres pendant 3 secondes."""
     print(nombre, end='', flush=True)
     time.sleep(3)
-    print("\r" + " " * len(str(nombre)), end='', flush=True)  # Efface le nombre affiché
+    clear_screen()
 
+
+""" print("\r" + " " * len(str(nombre)), end='', flush=True)   
+Efface le nombre affiché joue le même rôle que la fonction clear_screen()
+"""
 
 score = 0
 sequence_length = 4
